@@ -5,7 +5,7 @@ const mongoose = require("mongoose")
 
 const app = express()
 
-const PORT = 5000
+// const PORT = 5000
 
 let todoList = []
 
@@ -16,8 +16,8 @@ mongoose.connect(URL).then(console.log("mongoDb connected"))
 .catch(error => console.log("mongoDb error", error))
 // mongoose.set('strictQuery', false)
 
-app.listen(PORT, function () {
-    console.log(`The server is running on port ${PORT}`)
+app.listen(process.env.PORT || 5000, function () {
+    console.log(`The server is running on port ${process.env.PORT}`)
 })
 
 app.use(express.json())
